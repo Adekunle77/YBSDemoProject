@@ -4,17 +4,17 @@
 In the YBS take-home project, my primary goal was to create an application that enables users to search for images, display them, and provide additional details about each image or its photographer.
 
 *Disclaimer:*
-Upon testing the API, I realized that it couldn't fulfill the original project requirements. The JSON data lacked essential information for listing user IDs, user icons, or fetching more images by the same user. As a result, I pivoted the project's focus to allow users to save their favorite images. The project was created with Swift version 5.5. I have a 2015 Mac, it can't install the latest Xcode update.
+Upon testing the API, I realized that it couldn't fulfil the original project requirements. The JSON data lacked essential information for listing user IDs, user icons, or fetching more images by the same user. As a result, I pivoted the project's focus to allow users to save their favourite images. The project was created with Swift version 5.5. I have a 2015 Mac, but it can't install the latest Xcode update.
 
-**Project Design:**
-After reevaluating the project, I structured it into three key components:
+**Project Design**
+After re-evaluating the project, I structured it into three key components:
 
 1. **Image Caching:** I implemented an image caching mechanism to optimize image loading and improve the user experience.
 2. **Persistence Layer:** I introduced a persistence layer for data storage, ensuring the app's ability to store and manage user-favorite images.
 3. **Networking:** The networking component handles API requests and data retrieval from external sources.
 4. **View:** The view component is responsible for presenting the user interface and interacting with the user.
 
-This revised project design aimed to provide a more practical and user-centric experience by focusing on image caching and the ability to save and manage favorite images.
+This revised project design aimed to provide a more practical and user-centric experience by focusing on image caching and the ability to save and manage favourite images.
 
 **Caching Images - Kingfisher SDK**
 The KingFisherCache class serves a critical purpose in our project by efficiently managing image caching, contributing to an enhanced user experience. The decision to implement image caching was driven by the aim to prevent the display of missing images in the UI. 
@@ -44,7 +44,7 @@ The implementation of data persistence in the CoreDataProvider class ensures con
 The use of the Persistable protocol and related classes adheres to the principle of separation of concerns. It isolates data storage operations from other parts of my application, making my codebase more organized, understandable, and maintainable.
 
 **The Network Layer** 
-I created the NetworkManager class using Combine to simplify networking in our app. It encapsulates network complexities, offering an abstracted interface for other parts of the code. By returning an AnyPublisher, it aligns well with async operations, improving code readability. Combine's mapError and eraseToAnyPublisher streamline error handling. In essence, this design choice enhances code modularity, making our app more maintainable and readable while efficiently managing network-related tasks.
+I created the NetworkManager class using Combine to simplify networking in our app. It encapsulates network complexities, offering an abstract interface for other parts of the code. By returning an AnyPublisher, it aligns well with async operations, improving code readability. Combine's mapError and eraseToAnyPublisher to streamline error handling. In essence, this design choice enhances code modularity, making our app more maintainable and readable while efficiently managing network-related tasks.
 
 **The View - MVVM** 
 The adoption of the MVVM (Model-View-ViewModel) design pattern in our project, embodied by the PhotosViewModel, is crucial. MVVM enhances code organization and maintainability by separating UI logic (View) from data (Model) into the ViewModel. This pattern streamlines the development process, promoting a clear separation of concerns and facilitating testing. The ViewModel's @Published properties enable automatic UI updates, ensuring a responsive user interface. Additionally, dependency injection makes the ViewModel flexible and testable. In summary, MVVM with the PhotosViewModel enhances code structure, fosters reactivity, and simplifies development, resulting in a more maintainable and user-friendly application.
